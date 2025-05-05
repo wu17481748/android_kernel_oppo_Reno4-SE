@@ -1,2 +1,3 @@
 export TARGET_BUILD_VARIANT=user
 export TARGET_PRODUCT=full_oppo6853
+export CONFIG_OPPO_KEVENT_UPLOAD=y
