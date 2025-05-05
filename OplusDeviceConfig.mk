@@ -1,0 +1,2 @@
+export TARGET_BUILD_VARIANT=user
+export TARGET_PRODUCT=full_oppo6853
