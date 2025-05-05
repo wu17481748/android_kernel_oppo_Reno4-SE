@@ -16,4 +16,4 @@ obj-y	+= oppo_gauge.o
 obj-y	+= oppo_vooc.o
 obj-y	+= oppo_adapter.o
 obj-y	+= oppo_short.o
-#obj-y	+= oppo_debug_info.o
+obj-y	+= oppo_debug_info.o
