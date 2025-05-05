@@ -1,10 +1,13 @@
 name: 编译OPPO Reno4SE 安卓10 mt6853机型内核
 
+# Controls when the workflow will run
 on:
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  
+  # Triggers the workflow on push or pull request events but only for the "安卓10" branch
+  push:
+    branches: [ "安卓10" ]
+  pull_request:
+    branches: [ "安卓10" ]
+    
 jobs:
   build:
 
