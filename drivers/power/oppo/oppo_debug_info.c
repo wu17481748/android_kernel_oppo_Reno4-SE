@@ -419,7 +419,9 @@ static int oppo_chg_debug_info_reset(void);
 static int oppo_chg_chg_is_normal_path(struct oppo_chg_chip *chip);
 //static unsigned long long oppo_chg_debug_get_notify_flag(bool reset);
 static int oppo_chg_debug_notify_flag_is_set(int flag);
+#ifdef CONFIG_OPPO_KEVENT_UPLOAD
 static int oppo_chg_debug_mask_notify_flag(int low, int high);
+#endif
 static int oppo_chg_debug_reset_notify_flag(void);
 static int oppo_chg_reset_chg_notify_type(void);
 static int oppo_chg_chg_batt_capacity_jump_check(struct oppo_chg_chip *chip);
@@ -637,11 +639,11 @@ static void oppo_chg_print_debug_info(struct oppo_chg_chip *chip)
 
 #ifdef CONFIG_OPPO_KEVENT_UPLOAD
 		ret += sizeof(struct kernel_packet_info);
-#endif
+
 
 		ret += snprintf(&oppo_chg_debug_msg[ret], OPPO_CHG_DEBUG_MSG_LEN - ret,
 				OPPO_CHG_DEBUG_EVENT_ID"$$");
-
+#endif
 		ret += snprintf(&oppo_chg_debug_msg[ret], OPPO_CHG_DEBUG_MSG_LEN - ret,
 				"type@@0x%x", oppo_chg_debug_info.notify_type);
 
@@ -2011,6 +2013,7 @@ static int oppo_chg_debug_notify_flag_is_set(int flag)
 	return ret;
 
 }
+#ifdef CONFIG_OPPO_KEVENT_UPLOAD
 static int oppo_chg_debug_mask_notify_flag(int low, int high)
 {
 	unsigned long long mask = -1;
@@ -2024,7 +2027,7 @@ static int oppo_chg_debug_mask_notify_flag(int low, int high)
 
 	return 0;
 }
-
+#endif
 static int oppo_chg_debug_reset_notify_flag(void)
 {
 	mutex_lock(&oppo_chg_debug_info.nflag_lock);
