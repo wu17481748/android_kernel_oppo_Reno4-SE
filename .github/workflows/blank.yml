@@ -1,8 +1,10 @@
 name: 编译OPPO Reno4SE 安卓10 mt6853机型内核
 
-# Controls when the workflow will run
 on:
-   workflow_dispatch:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 5' # Run every friday at midnight
     
 jobs:
   build:
